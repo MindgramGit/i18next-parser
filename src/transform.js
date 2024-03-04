@@ -15,6 +15,8 @@ import {
 } from './helpers.js'
 import Parser from './parser.js'
 
+const PLURAL_SUFFIXES = ['_zero', '_one', '_two', '_few', '_many', '_other']
+
 export default class i18nTransform extends Transform {
   constructor(options = {}) {
     options.objectMode = true
@@ -40,6 +42,7 @@ export default class i18nTransform extends Transform {
       customValueTemplate: null,
       failOnWarnings: false,
       yamlOptions: null,
+      addAllPluralSuffixes: false,
     }
 
     this.options = { ...this.defaults, ...options }
@@ -205,11 +208,17 @@ export default class i18nTransform extends Transform {
           this.options.pluralSeparator !== false &&
           entry.count !== undefined
         ) {
-          this.i18next.services.pluralResolver
-            .getSuffixes(locale, { ordinal: entry.ordinal })
-            .forEach((suffix) => {
+          if (this.options.addAllPluralSuffixes) {
+            PLURAL_SUFFIXES.forEach((suffix) => {
               transformEntry(entry, suffix)
             })
+          } else {
+            this.i18next.services.pluralResolver
+              .getSuffixes(locale, { ordinal: entry.ordinal })
+              .forEach((suffix) => {
+                transformEntry(entry, suffix)
+              })
+          }
         } else {
           transformEntry(entry)
         }
