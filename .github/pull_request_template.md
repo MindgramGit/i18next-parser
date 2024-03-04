@@ -1,13 +1,11 @@
-### Why am I submitting this PR
+## Description
 
-Blablabla
+Add some description...
 
-### Does it fix an existing ticket?
+## Attachments
 
-Yes/No #000
+None
 
-### Checklist
+## Issues
 
-- [ ] only relevant code is changed (make a diff before you submit the PR)
-- [ ] tests are included and pass: `yarn test` (see [details here](https://github.com/i18next/i18next-parser/blob/master/docs/development.md#tests))
-- [ ] documentation is changed or added
+None
