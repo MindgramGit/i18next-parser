@@ -35,6 +35,7 @@ export default class i18nTransform extends Transform {
       locales: ['en', 'fr'],
       namespaceSeparator: ':',
       pluralSeparator: '_',
+      addAllPluralSuffixes: false,
       output: 'locales/$LOCALE/$NAMESPACE.json',
       resetDefaultValueLocale: null,
       sort: false,
@@ -42,7 +43,6 @@ export default class i18nTransform extends Transform {
       customValueTemplate: null,
       failOnWarnings: false,
       yamlOptions: null,
-      addAllPluralSuffixes: false,
     }
 
     this.options = { ...this.defaults, ...options }

@@ -23,8 +23,7 @@
     "watch": "babel src -d dist -w",
     "prettify": "prettier --write \"{src,test}/**/*.js\"",
     "build": "babel src -d dist && cp index.d.ts dist",
-    "prepare": "husky install",
-    "prepublishOnly": "npm run prettify && npm run build"
+    "prepare": "husky install && npm run prettify && npm run build"
   },
   "dependencies": {
     "@babel/runtime": "^7.23.2",
