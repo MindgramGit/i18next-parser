@@ -1,3 +1,3 @@
 export default {
-  '*.{js,css,md}': 'yarn prettify',
+  '*.{js,css,md}': 'npm run prettify',
 }
